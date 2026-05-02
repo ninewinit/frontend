@@ -1,25 +1,17 @@
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
-import { PainPoints } from "@/components/pain-points";
-import { CompanyIntro } from "@/components/company-intro";
-import { FeaturesSection } from "@/components/features-section";
-import { CtaSection } from "@/components/cta-section";
-import { ServiceTabs } from "@/components/service-tabs";
-import { ContactForm } from "@/components/contact-form";
-import { Footer } from "@/components/footer";
+import { Hero } from '@/components/landing/hero'
+import { PainPoints } from '@/components/landing/pain-points'
+import { CompanyIntro } from '@/components/landing/company-intro'
+import { ContactForm } from '@/components/landing/contact/contact-form'
+import ServiceTab from '@/components/landing/service/service-tab'
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
+    <>
       <Hero />
+      <ServiceTab />
       <PainPoints />
       <CompanyIntro />
-      <ServiceTabs />
-      <FeaturesSection />
-      <CtaSection />
       <ContactForm />
-      <Footer />
-    </main>
-  );
+    </>
+  )
 }

@@ -1,57 +1,54 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { Play } from "lucide-react";
+import { useState } from 'react'
+
 import {
   ContactFormSuccess,
   ContactInputField,
   ContactTextareaField,
-} from "@/components/landing/contact-fields";
+} from '@/components/landing/contact/contact-fields'
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
-    company: "",
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
+    company: '',
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-  };
+    e.preventDefault()
+    console.log('Form submitted:', formData)
+    setIsSubmitted(true)
+  }
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }));
-  };
+    }))
+  }
 
   if (isSubmitted) {
-    return <ContactFormSuccess />;
+    return <ContactFormSuccess />
   }
 
   return (
-    <section id="contact" className="bg-surface py-20 md:py-28 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section id="contact" className="bg-background px-[10%] py-20 md:py-28">
+      <div className="mx-auto">
         <div className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-surface-foreground flex items-center gap-2 mb-2">
-            <span className="inline-block w-5 h-5 border-2 border-surface-foreground rounded" />
-            광고 문의하기
-          </h2>
-          <p className="text-surface-muted text-sm">
+          <h2 className="heading1 text-center">광고 문의하기</h2>
+          <p className="heading3 text-center text-gray-500">
             전문가와 상담하고 맞춤형 솔루션을 받아보세요
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <ContactInputField
               id="company"
               type="text"
@@ -75,7 +72,7 @@ export function ContactForm() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <ContactInputField
               id="phone"
               type="tel"
@@ -112,13 +109,12 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-surface-foreground text-surface py-4 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="bg-primary-main text-surface flex w-full items-center justify-center gap-2 rounded-lg py-4.5 text-sm font-semibold transition-opacity hover:opacity-90"
           >
-            <Play size={16} fill="currentColor" />
             문의하기
           </button>
         </form>
       </div>
     </section>
-  );
+  )
 }
